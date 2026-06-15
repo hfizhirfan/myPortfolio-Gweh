@@ -353,7 +353,13 @@ const faqs = [
               highly functional and visually impactful.
             </p>
           </div>
-          <a class="outline-button" href="#contact" aria-label="See more works">
+          <a
+            class="outline-button"
+            href="/Portfolio_Hafizh.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="See more works"
+          >
             See More Works
             <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
           </a>
