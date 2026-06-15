@@ -258,10 +258,17 @@ const faqs = [
     <section id="home" class="hero-section reveal-on-scroll">
       <div class="hero-copy hero-copy-left">
         <p>Hello, I'm Irfan, a Web Developer and Designer based in Surabaya, Indonesia.</p>
-        <a class="download-cv-button" href="/CV_Hafizh_Muhammad_Irfansyah.pdf" download>
-          <span class="material-symbols-rounded" aria-hidden="true">download</span>
-          Download CV
-        </a>
+        <details class="cv-dropdown">
+          <summary class="download-cv-button">
+            <span class="material-symbols-rounded" aria-hidden="true">download</span>
+            Download CV
+            <span class="material-symbols-rounded cv-chevron" aria-hidden="true">expand_more</span>
+          </summary>
+          <div class="cv-dropdown-menu">
+            <a href="/CV_Hafizh%20_Irfansyah.pdf" download>CV Bahasa Indonesia</a>
+            <a href="/CV_Hafizh_Muhammad_Irfansyah_English%20Version.pdf" download>CV English Version</a>
+          </div>
+        </details>
       </div>
 
       <div class="hero-portrait" aria-label="Portrait of Hafizh Irfansyah">
@@ -734,6 +741,30 @@ textarea {
   margin-bottom: 28px;
 }
 
+.cv-dropdown {
+  position: relative;
+  display: inline-block;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.cv-dropdown::details-content {
+  block-size: auto;
+  overflow: visible;
+}
+
+.cv-dropdown[open] {
+  border-color: transparent;
+  background: transparent;
+  color: inherit;
+}
+
 .download-cv-button {
   display: inline-flex;
   align-items: center;
@@ -744,10 +775,16 @@ textarea {
   border-radius: 999px;
   background: #242933;
   color: white;
+  cursor: pointer;
   font-size: 16px;
   font-weight: 700;
   line-height: 1;
+  list-style: none;
   transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.download-cv-button::-webkit-details-marker {
+  display: none;
 }
 
 .download-cv-button:hover,
@@ -759,6 +796,47 @@ textarea {
 .download-cv-button .material-symbols-rounded {
   font-size: 20px;
   font-variation-settings: "FILL" 0, "wght" 600, "GRAD" 0, "opsz" 20;
+}
+
+.download-cv-button .cv-chevron {
+  font-size: 22px;
+  transition: transform 160ms ease;
+}
+
+.cv-dropdown[open] .cv-chevron {
+  transform: rotate(180deg);
+}
+
+.cv-dropdown-menu {
+  position: absolute;
+  z-index: 12;
+  top: calc(100% + 10px);
+  left: 0;
+  display: grid;
+  min-width: 220px;
+  padding: 8px;
+  border: 1px solid #dfe1e4;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 18px 34px rgba(24, 28, 36, 0.14);
+}
+
+.cv-dropdown-menu a {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: #242933;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.cv-dropdown-menu a:hover,
+.cv-dropdown-menu a:focus-visible {
+  background: #eef1ff;
+  color: var(--blue);
 }
 
 .hero-copy-left {
@@ -1394,6 +1472,23 @@ summary::after {
   line-height: 1;
   transition: transform 220ms ease;
   font-variation-settings: "FILL" 0, "wght" 600, "GRAD" 0, "opsz" 40;
+}
+
+.cv-dropdown summary::after {
+  content: none;
+}
+
+.cv-dropdown,
+.faq-section.is-visible .cv-dropdown {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.cv-dropdown[open] {
+  border-color: transparent;
+  background: transparent;
+  color: inherit;
 }
 
 details[open] summary::after {
