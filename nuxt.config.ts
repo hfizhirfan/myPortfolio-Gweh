@@ -4,9 +4,10 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   app: {
     head: {
+      title: 'HMI - Personal Portfolio',
       link: [
-        { rel: 'icon', type: 'image/png', href: '/HMI%20Putih.png' },
-        { rel: 'shortcut icon', type: 'image/png', href: '/HMI%20Putih.png' },
+        { rel: 'icon', type: 'image/png', href: '/HMI%20Favicon.png' },
+        { rel: 'shortcut icon', type: 'image/png', href: '/HMI%20Favicon.png' },
       ],
     },
   },
