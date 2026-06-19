@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 
+const route = useRoute()
 const isNavScrolled = ref(false)
 const activeSection = ref('home')
 const isDarkMode = ref(false)
@@ -173,12 +174,32 @@ const submitContactForm = async () => {
 
 const navItems = ['Home', 'About', 'Project', 'Contact']
 
+const navHref = (item: string) => {
+  const id = item.toLowerCase()
+
+  if (id === 'project') {
+    return route.path === '/' ? '#project' : '/#project'
+  }
+
+  return route.path === '/' ? `#${id}` : `/#${id}`
+}
+
+const isNavItemActive = (item: string) => {
+  const id = item.toLowerCase()
+
+  if (id === 'project') {
+    return route.path === '/' && activeSection.value === id
+  }
+
+  return route.path === '/' && activeSection.value === id
+}
+
 const quickLinks = [
-  { label: 'Home', href: '#home' },
-  { label: 'About Me', href: '#about' },
-  { label: 'My Expertise', href: '#expertise' },
-  { label: 'Projects', href: '#project' },
-  { label: 'FAQ', href: '#faq' },
+  { label: 'Home', href: '/#home' },
+  { label: 'About Me', href: '/#about' },
+  { label: 'My Expertise', href: '/#expertise' },
+  { label: 'Projects', href: '/#project' },
+  { label: 'FAQ', href: '/#faq' },
 ]
 
 const expertise = [
@@ -206,22 +227,43 @@ const expertise = [
 
 const projects = [
   {
+    slug: 'roti-alit',
     title: 'Roti Alit',
+    description:
+      'A responsive e-commerce storefront concept for a local bakery, focused on product browsing, clear visual hierarchy, and mobile-friendly ordering flow.',
+    detail:
+      'Roti Alit presents bakery products with a clean catalog experience, warm visual direction, and simple paths for customers to discover items quickly. The interface balances product imagery, readable content, and compact sections for repeated browsing.',
     type: 'E-Commerce • Website',
     accent: '#22b8b2',
     image: '/roti%20alit.png',
+    technologies: ['Vue', 'UI Design', 'Responsive'],
+    liveUrl: '#',
   },
   {
+    slug: 'mooc-unocos',
     title: 'MOOC Unocos',
+    description:
+      'An online learning platform interface for course discovery, structured learning progress, and a focused student dashboard.',
+    detail:
+      'MOOC Unocos was designed around learning clarity: course modules, progress visibility, and predictable navigation. The design prioritizes calm spacing, direct actions, and a dashboard that helps students continue learning without friction.',
     type: 'Education Platform • UI/UX Design',
     accent: '#3f5cff',
     image: '/unocos.png',
+    technologies: ['Figma', 'UX Flow', 'Dashboard'],
+    liveUrl: '#',
   },
   {
+    slug: 'kampung-bebek',
     title: 'Kampung Bebek',
+    description:
+      'A community profile website that introduces local identity, highlights activities, and communicates information through a friendly editorial layout.',
+    detail:
+      'Kampung Bebek combines community storytelling with practical website structure. The project emphasizes approachable visuals, content sections that are easy to scan, and responsive presentation for public-facing information.',
     type: 'Community Profile • Website',
     accent: '#e5a33b',
     image: '/kampung%20bebek.png',
+    technologies: ['HTML', 'CSS', 'Content'],
+    liveUrl: '#',
   },
 ]
 
@@ -257,15 +299,15 @@ const faqs = [
 <template>
   <main class="site-shell" :class="{ 'theme-dark': isDarkMode }">
     <header class="floating-nav" :class="{ 'floating-nav-scrolled': isNavScrolled }">
-      <a class="brand-mark" href="#home" aria-label="Hafizh Irfansyah home">
+      <a class="brand-mark" href="/#home" aria-label="Hafizh Irfansyah home">
         <img src="/HMI%20Ungu.png" alt="HMI" />
       </a>
       <nav aria-label="Primary navigation">
         <a
           v-for="item in navItems"
           :key="item"
-          :class="{ 'nav-link-active': activeSection === item.toLowerCase() }"
-          :href="`#${item.toLowerCase()}`"
+          :class="{ 'nav-link-active': isNavItemActive(item) }"
+          :href="navHref(item)"
         >
           {{ item }}
         </a>
@@ -281,6 +323,9 @@ const faqs = [
       </button>
     </header>
 
+    <NuxtPage v-if="route.path.startsWith('/my-projects')" />
+
+    <template v-else>
     <section id="home" class="hero-section reveal-on-scroll">
       <div class="hero-copy hero-copy-left">
         <p>Hello, I'm Irfan, a Web Developer and Designer based in Surabaya, Indonesia.</p>
@@ -518,6 +563,7 @@ const faqs = [
         </div>
       </div>
     </footer>
+    </template>
   </main>
 </template>
 
@@ -549,6 +595,10 @@ section[id] {
 
 #contact {
   scroll-margin-top: 150px;
+}
+
+#project {
+  scroll-margin-top: 168px;
 }
 
 body {
@@ -1916,6 +1966,234 @@ sup {
   font-variation-settings: "FILL" 1, "wght" 700, "GRAD" 0, "opsz" 32;
 }
 
+.projects-page,
+.project-detail-page {
+  width: min(1100px, calc(100% - 80px));
+  margin: 0 auto;
+  padding: 166px 0 96px;
+}
+
+.projects-page-heading {
+  padding-bottom: 28px;
+  border-bottom: 1px dashed rgba(36, 41, 51, 0.28);
+}
+
+.projects-page-heading .eyebrow,
+.project-detail-heading .eyebrow {
+  margin-bottom: 14px;
+  color: var(--blue);
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+.projects-page-heading h1,
+.project-detail-heading h1 {
+  max-width: 760px;
+  margin-bottom: 16px;
+  color: #10131a;
+  font-size: clamp(34px, 4vw, 54px);
+  line-height: 1.04;
+}
+
+.projects-page-heading > p,
+.project-detail-heading > p {
+  max-width: 780px;
+  margin: 0;
+  color: #4f5662;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.projects-page-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+  margin-top: 26px;
+}
+
+.project-showcase-card {
+  display: grid;
+  overflow: hidden;
+  min-height: 380px;
+  border-radius: 8px;
+  background: #e6ecf5;
+  color: #10131a;
+  box-shadow: 0 20px 42px rgba(31, 34, 41, 0.08);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.project-showcase-card:hover,
+.project-showcase-card:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 26px 50px rgba(31, 34, 41, 0.14);
+}
+
+.project-showcase-card:focus-visible {
+  outline: 3px solid var(--project-accent);
+  outline-offset: 4px;
+}
+
+.project-showcase-media {
+  position: relative;
+  overflow: hidden;
+  height: 240px;
+  background: linear-gradient(135deg, rgba(70, 93, 255, 0.14), rgba(34, 184, 178, 0.12));
+}
+
+.project-showcase-media::after {
+  position: absolute;
+  inset: auto 0 0;
+  height: 5px;
+  background: var(--project-accent);
+  content: "";
+}
+
+.project-showcase-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 220ms ease;
+}
+
+.project-showcase-card:hover .project-showcase-media img,
+.project-showcase-card:focus-visible .project-showcase-media img {
+  transform: scale(1.025);
+}
+
+.project-showcase-body {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  padding: 24px 28px 26px;
+}
+
+.project-showcase-body > p:first-child {
+  margin: 0;
+  color: var(--project-accent);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.project-showcase-body h2 {
+  margin: 0;
+  color: #10131a;
+  font-size: 25px;
+  line-height: 1.12;
+}
+
+.project-showcase-body > p:last-of-type {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  color: #707887;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.45;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.project-tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.project-tech-list span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 12px;
+  border: 1px solid rgba(36, 41, 51, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.64);
+  color: #252933;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.project-detail-page {
+  width: min(1040px, calc(100% - 96px));
+}
+
+.back-button,
+.project-demo-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 42px;
+  padding: 0 14px;
+  border-radius: 8px;
+  background: #e4ebf4;
+  color: #1f2633;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1;
+  transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.back-button:hover,
+.back-button:focus-visible,
+.project-demo-button:hover,
+.project-demo-button:focus-visible {
+  background: var(--blue);
+  color: white;
+  transform: translateY(-1px);
+}
+
+.back-button .material-symbols-rounded,
+.project-demo-button .material-symbols-rounded {
+  font-size: 18px;
+  font-variation-settings: "FILL" 0, "wght" 650, "GRAD" 0, "opsz" 20;
+}
+
+.project-detail-heading {
+  margin-top: 28px;
+}
+
+.project-detail-heading h1 {
+  max-width: 900px;
+}
+
+.project-demo-button {
+  margin-top: 24px;
+  background: color-mix(in srgb, var(--project-accent) 20%, #e4ebf4);
+}
+
+.project-detail-visual {
+  overflow: hidden;
+  margin-top: 28px;
+  border-radius: 8px;
+  background: #dfe6f0;
+  box-shadow: 0 24px 50px rgba(31, 34, 41, 0.14);
+}
+
+.project-detail-visual img {
+  display: block;
+  width: 100%;
+  max-height: 540px;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.project-detail-meta {
+  margin-top: 42px;
+}
+
+.project-detail-meta h2 {
+  margin-bottom: 16px;
+  color: #10131a;
+  font-size: 18px;
+  line-height: 1.15;
+}
+
 .theme-dark .hero-section {
   background:
     linear-gradient(0deg, rgba(70, 93, 255, 0.28) 0%, rgba(29, 36, 58, 0.72) 10%, transparent 22%, transparent 100%),
@@ -2042,9 +2320,66 @@ sup {
   color: #ff8a8a;
 }
 
+.theme-dark .projects-page-heading {
+  border-bottom-color: rgba(238, 242, 248, 0.2);
+}
+
+.theme-dark .projects-page-heading h1,
+.theme-dark .project-detail-heading h1,
+.theme-dark .project-detail-meta h2,
+.theme-dark .project-showcase-body h2 {
+  color: #f4f7fb;
+}
+
+.theme-dark .projects-page-heading > p,
+.theme-dark .project-detail-heading > p,
+.theme-dark .project-showcase-body > p:last-of-type {
+  color: #b8c0cc;
+}
+
+.theme-dark .project-showcase-card {
+  background: #1a202b;
+  color: #eef2f8;
+  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.24);
+}
+
+.theme-dark .project-showcase-card:hover,
+.theme-dark .project-showcase-card:focus-visible {
+  box-shadow: 0 26px 50px rgba(0, 0, 0, 0.34);
+}
+
+.theme-dark .project-showcase-media,
+.theme-dark .project-detail-visual {
+  background: #11151d;
+}
+
+.theme-dark .project-tech-list span {
+  border-color: rgba(238, 242, 248, 0.12);
+  background: rgba(238, 242, 248, 0.06);
+  color: #eef2f8;
+}
+
+.theme-dark .back-button,
+.theme-dark .project-demo-button {
+  background: #222938;
+  color: #eef2f8;
+}
+
+.theme-dark .back-button:hover,
+.theme-dark .back-button:focus-visible,
+.theme-dark .project-demo-button:hover,
+.theme-dark .project-demo-button:focus-visible {
+  background: #bac5ff;
+  color: #11141a;
+}
+
 @media (max-width: 920px) {
   section[id] {
     scroll-margin-top: 130px;
+  }
+
+  #project {
+    scroll-margin-top: 148px;
   }
 
   .floating-nav {
@@ -2194,6 +2529,20 @@ sup {
     height: auto;
   }
 
+  .projects-page,
+  .project-detail-page {
+    width: min(100% - 72px, 760px);
+    padding-top: 138px;
+  }
+
+  .projects-page-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-showcase-media {
+    height: 260px;
+  }
+
   .site-footer {
     grid-column: auto;
     gap: 34px;
@@ -2203,6 +2552,10 @@ sup {
 @media (max-width: 620px) {
   section[id] {
     scroll-margin-top: 110px;
+  }
+
+  #project {
+    scroll-margin-top: 123px;
   }
 
   .floating-nav {
@@ -2335,6 +2688,55 @@ sup {
 
   .project-preview {
     height: auto;
+  }
+
+  .projects-page,
+  .project-detail-page {
+    width: calc(100% - 40px);
+    padding-top: 118px;
+    padding-bottom: 72px;
+  }
+
+  .projects-page-heading {
+    padding-bottom: 22px;
+  }
+
+  .projects-page-heading h1,
+  .project-detail-heading h1 {
+    font-size: 32px;
+  }
+
+  .projects-page-heading > p,
+  .project-detail-heading > p {
+    font-size: 16px;
+  }
+
+  .projects-page-grid {
+    gap: 22px;
+  }
+
+  .project-showcase-card {
+    min-height: 0;
+  }
+
+  .project-showcase-media {
+    height: 210px;
+  }
+
+  .project-showcase-body {
+    padding: 20px;
+  }
+
+  .project-showcase-body h2 {
+    font-size: 22px;
+  }
+
+  .project-detail-page {
+    width: calc(100% - 32px);
+  }
+
+  .project-detail-visual img {
+    max-height: 420px;
   }
 
   .site-footer {
