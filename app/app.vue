@@ -3,6 +3,7 @@ import { onBeforeUnmount, onMounted, ref } from 'vue'
 
 const isNavScrolled = ref(false)
 const activeSection = ref('home')
+const isDarkMode = ref(false)
 const isSendingMessage = ref(false)
 const contactStatus = ref('')
 const contactStatusType = ref<'success' | 'error' | ''>('')
@@ -37,7 +38,23 @@ const updateNavState = () => {
   }
 }
 
+const applyTheme = (useDarkMode: boolean) => {
+  isDarkMode.value = useDarkMode
+  document.documentElement.dataset.theme = useDarkMode ? 'dark' : 'light'
+  document.documentElement.style.colorScheme = useDarkMode ? 'dark' : 'light'
+  window.localStorage.setItem('portfolio-theme', useDarkMode ? 'dark' : 'light')
+}
+
+const toggleTheme = () => {
+  applyTheme(!isDarkMode.value)
+}
+
 onMounted(() => {
+  const savedTheme = window.localStorage.getItem('portfolio-theme')
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+
+  applyTheme(savedTheme ? savedTheme === 'dark' : prefersDark)
+
   if ('scrollRestoration' in window.history) {
     window.history.scrollRestoration = 'manual'
   }
@@ -238,7 +255,7 @@ const faqs = [
 </script>
 
 <template>
-  <main class="site-shell">
+  <main class="site-shell" :class="{ 'theme-dark': isDarkMode }">
     <header class="floating-nav" :class="{ 'floating-nav-scrolled': isNavScrolled }">
       <a class="brand-mark" href="#home" aria-label="Hafizh Irfansyah home">
         <img src="/HMI%20Ungu.png" alt="HMI" />
@@ -253,6 +270,15 @@ const faqs = [
           {{ item }}
         </a>
       </nav>
+      <button
+        class="theme-toggle"
+        type="button"
+        :aria-label="isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'"
+        :title="isDarkMode ? 'Light mode' : 'Dark mode'"
+        @click="toggleTheme"
+      >
+        <span class="material-symbols-rounded" aria-hidden="true">{{ isDarkMode ? 'light_mode' : 'dark_mode' }}</span>
+      </button>
     </header>
 
     <section id="home" class="hero-section reveal-on-scroll">
@@ -531,6 +557,12 @@ body {
   color: var(--ink);
   font-family: "Google Sans", "Product Sans", Arial, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   letter-spacing: 0;
+  transition: background-color 220ms ease, color 220ms ease;
+}
+
+:root[data-theme="dark"] body {
+  background: #10131a;
+  color: #eef2f8;
 }
 
 .material-symbols-rounded {
@@ -562,7 +594,14 @@ textarea {
 
 .site-shell {
   min-height: 100vh;
+  background: var(--paper);
   overflow: hidden;
+  transition: background-color 220ms ease, color 220ms ease;
+}
+
+.theme-dark {
+  background: #10131a;
+  color: #eef2f8;
 }
 
 .reveal-on-scroll {
@@ -719,6 +758,55 @@ textarea {
 .floating-nav nav a.nav-link-active::after {
   opacity: 1;
   transform: scaleX(1);
+}
+
+.theme-toggle {
+  display: inline-grid;
+  flex: 0 0 46px;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(36, 41, 51, 0.16);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.72);
+  color: #242933;
+  cursor: pointer;
+  box-shadow: 0 12px 24px rgba(18, 20, 25, 0.1);
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  border-color: var(--blue);
+  color: var(--blue);
+  transform: translateY(-1px);
+}
+
+.theme-toggle .material-symbols-rounded {
+  font-size: 23px;
+  font-variation-settings: "FILL" 0, "wght" 600, "GRAD" 0, "opsz" 24;
+}
+
+.theme-dark .floating-nav-scrolled {
+  background: rgba(22, 26, 35, 0.92);
+  box-shadow: 22px 22px 30px rgba(0, 0, 0, 0.34);
+}
+
+.theme-dark .floating-nav nav {
+  color: #eef2f8;
+}
+
+.theme-dark .theme-toggle {
+  border-color: rgba(238, 242, 248, 0.16);
+  background: rgba(238, 242, 248, 0.08);
+  color: #eef2f8;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.theme-dark .theme-toggle:hover,
+.theme-dark .theme-toggle:focus-visible {
+  border-color: #bac5ff;
+  color: #bac5ff;
 }
 
 .hero-section {
@@ -1828,6 +1916,132 @@ sup {
   font-variation-settings: "FILL" 1, "wght" 700, "GRAD" 0, "opsz" 32;
 }
 
+.theme-dark .hero-section {
+  background:
+    linear-gradient(0deg, rgba(70, 93, 255, 0.28) 0%, rgba(29, 36, 58, 0.72) 10%, transparent 22%, transparent 100%),
+    linear-gradient(180deg, #10131a 0%, #151922 100%);
+}
+
+.theme-dark .hero-copy,
+.theme-dark .about-section .eyebrow,
+.theme-dark .about-section h1,
+.theme-dark .eyebrow,
+.theme-dark .expertise-intro .eyebrow,
+.theme-dark .expertise-intro h2,
+.theme-dark .expertise-card h3,
+.theme-dark .faq-copy h2,
+.theme-dark .contact-copy h2 {
+  color: #f4f7fb;
+}
+
+.theme-dark .about-text,
+.theme-dark .expertise-intro > p,
+.theme-dark .expertise-card p,
+.theme-dark .faq-copy p,
+.theme-dark .contact-copy p {
+  color: #b8c0cc;
+}
+
+.theme-dark .download-cv-button {
+  border-color: #bac5ff;
+  background: #bac5ff;
+  color: #11141a;
+}
+
+.theme-dark .download-cv-button:hover,
+.theme-dark .download-cv-button:focus-visible {
+  border-color: #eef2f8;
+  background: #eef2f8;
+}
+
+.theme-dark .cv-dropdown-menu {
+  border-color: rgba(238, 242, 248, 0.12);
+  background: #1b202b;
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.34);
+}
+
+.theme-dark .cv-dropdown-menu a {
+  color: #eef2f8;
+}
+
+.theme-dark .cv-dropdown-menu a:hover,
+.theme-dark .cv-dropdown-menu a:focus-visible {
+  background: rgba(186, 197, 255, 0.12);
+  color: #bac5ff;
+}
+
+.theme-dark .expertise-card {
+  background: #191e28;
+  box-shadow: inset 0 0 0 1px rgba(238, 242, 248, 0.07);
+}
+
+.theme-dark .projects-section,
+.theme-dark .site-footer {
+  background: #171b24;
+}
+
+.theme-dark .projects-top p,
+.theme-dark .project-item > p,
+.theme-dark .footer-brand p,
+.theme-dark .footer-links a,
+.theme-dark .footer-contact a {
+  color: #cfd6e2;
+}
+
+.theme-dark details {
+  border-color: rgba(238, 242, 248, 0.14);
+  color: #eef2f8;
+}
+
+.theme-dark details[open] {
+  border-color: #bac5ff;
+  background: #1b202b;
+}
+
+.theme-dark .contact-lines a,
+.theme-dark .contact-lines span,
+.theme-dark .contact-icon,
+.theme-dark .contact-form label {
+  color: #eef2f8;
+}
+
+.theme-dark .contact-form input,
+.theme-dark .contact-form textarea {
+  border-color: rgba(238, 242, 248, 0.22);
+  background: rgba(238, 242, 248, 0.04);
+  color: #eef2f8;
+}
+
+.theme-dark .contact-form input::placeholder,
+.theme-dark .contact-form textarea::placeholder {
+  color: #8f98a7;
+}
+
+.theme-dark .contact-form input:focus,
+.theme-dark .contact-form textarea:focus {
+  border-color: #bac5ff;
+  box-shadow: 0 0 0 3px rgba(186, 197, 255, 0.14);
+}
+
+.theme-dark .contact-form button {
+  border-color: #eef2f8;
+  color: #eef2f8;
+}
+
+.theme-dark .contact-form button:hover,
+.theme-dark .contact-form button:focus-visible {
+  border-color: #bac5ff;
+  color: #bac5ff;
+}
+
+.theme-dark .contact-status-success {
+  color: #66d19e;
+}
+
+.theme-dark .contact-status-error {
+  color: #ff8a8a;
+}
+
 @media (max-width: 920px) {
   section[id] {
     scroll-margin-top: 130px;
@@ -1840,11 +2054,18 @@ sup {
     min-height: 92px;
     padding: 16px 34px;
     border-radius: 34px;
+    gap: 22px;
   }
 
   .floating-nav nav {
     gap: clamp(24px, 5vw, 44px);
     font-size: 16px;
+  }
+
+  .theme-toggle {
+    flex-basis: 44px;
+    width: 44px;
+    height: 44px;
   }
 
   .hero-section {
@@ -1988,8 +2209,9 @@ sup {
     width: calc(100% - 24px);
     align-items: center;
     min-height: 78px;
-    padding: 12px 18px;
+    padding: 12px 14px;
     border-radius: 26px;
+    gap: 10px;
   }
 
   .brand-mark {
@@ -2005,8 +2227,18 @@ sup {
     flex-wrap: wrap;
     justify-content: flex-end;
     gap: 12px 18px;
-    max-width: 230px;
+    max-width: 190px;
     font-size: 13px;
+  }
+
+  .theme-toggle {
+    flex-basis: 38px;
+    width: 38px;
+    height: 38px;
+  }
+
+  .theme-toggle .material-symbols-rounded {
+    font-size: 20px;
   }
 
   .hero-section {
