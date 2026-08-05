@@ -336,8 +336,8 @@ const faqs = [
             <span class="material-symbols-rounded cv-chevron" aria-hidden="true">expand_more</span>
           </summary>
           <div class="cv-dropdown-menu">
-            <a href="/CV_Hafizh%20_Irfansyah.pdf" download>CV Bahasa Indonesia</a>
-            <a href="/CV_Hafizh_Muhammad_Irfansyah_English%20Version.pdf" download>CV English Version</a>
+            <a href="/CV_Hafizh Muhammad Irfansyah.pdf" download>CV Bahasa Indonesia</a>
+            <a href="/CV_Hafizh Muhammad Irfansyah English.pdf" download>CV English Version</a>
           </div>
         </details>
       </div>
