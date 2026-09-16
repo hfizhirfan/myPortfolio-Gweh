@@ -12,6 +12,7 @@ export interface ExperienceItem {
   id: string
   role: string
   company: string
+  companyLogo?: string
   employmentType: string
   period: string
   description: string
@@ -123,6 +124,7 @@ export const experiencesAndProjects: ExperienceItem[] = [
     id: 'exp-1',
     role: 'IT Programmer',
     company: 'PT. Media Bersama Sukses',
+    companyLogo: '/mbs_logo.png',
     employmentType: 'Contract',
     period: 'Nov 2025 - Present',
     description:
@@ -135,6 +137,7 @@ export const experiencesAndProjects: ExperienceItem[] = [
     id: 'exp-2',
     role: 'Front-end Web Developer',
     company: 'PT. Mitra Tekno Persada',
+    companyLogo: '/mtp_logo.png',
     employmentType: 'Internship',
     period: 'Jun 2024 - Aug 2024',
     description:
@@ -146,6 +149,7 @@ export const experiencesAndProjects: ExperienceItem[] = [
     id: 'exp-3',
     role: 'Graphic Designer & Layout',
     company: 'CV. Vio Indonesia',
+    companyLogo: '/vio_logo.png',
     employmentType: 'Contract',
     period: 'Jul 2019 - Sep 2021',
     description:
@@ -333,7 +337,6 @@ export const achievementsData: AchievementItem[] = [
     id: 'cert-7',
     title: 'Code Generation and Optimization Using IBM Granite',
     issuer: 'IBM',
-    issuerLogo: '/ibm_logo.svg',
     issuerLogo: '/ibm_logo.jpg',
     date: '2025',
     type: 'certification',
@@ -374,7 +377,6 @@ export const achievementsData: AchievementItem[] = [
     id: 'cert-8',
     title: 'LLM-Based Tools and Gemini API Integration for Data Scientists',
     issuer: 'Hacktiv8 Indonesia',
-    issuerLogo: '/hacktiv8_logo.png',
     issuerLogo: '/hacktiv8_logo.jpg',
     date: '2026',
     type: 'certification',

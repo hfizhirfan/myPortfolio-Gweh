@@ -82,14 +82,32 @@ const filteredItems = computed(() => {
             </span>
           </div>
 
-          <!-- Role & Company -->
-          <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
-            {{ item.role }}
-          </h3>
-          <p class="text-sm font-semibold text-purple-600 dark:text-purple-400 mb-3 flex items-center gap-1.5">
-            <span class="material-symbols-rounded text-base">{{ item.type === 'project' ? 'laptop' : 'apartment' }}</span>
-            {{ item.company }}
-          </p>
+          <!-- Role & Company with Left Logo (As in mockup) -->
+          <div class="flex items-center gap-3.5 sm:gap-4 mb-4">
+            <!-- Square Logo (No border, slightly rounded, aligned with text height) -->
+            <img
+              v-if="item.companyLogo"
+              :src="item.companyLogo"
+              :alt="item.company"
+              class="w-10 h-10 sm:w-11 sm:h-11 rounded-lg object-contain shrink-0 group-hover:scale-105 transition-transform"
+            />
+            <div
+              v-else-if="item.type === 'project'"
+              class="w-10 h-10 sm:w-11 sm:h-11 rounded-lg bg-purple-50 dark:bg-purple-950/60 flex items-center justify-center shrink-0 text-purple-600 dark:text-purple-400 group-hover:scale-105 transition-transform"
+            >
+              <span class="material-symbols-rounded text-xl sm:text-2xl">laptop</span>
+            </div>
+
+            <!-- Position & Company Name -->
+            <div class="min-w-0 flex-1">
+              <h3 class="text-base sm:text-lg font-bold text-slate-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors leading-snug">
+                {{ item.role }}
+              </h3>
+              <p class="text-xs sm:text-sm font-semibold text-purple-600 dark:text-purple-400 truncate mt-0.5">
+                {{ item.company }}
+              </p>
+            </div>
+          </div>
 
           <!-- Description -->
           <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
