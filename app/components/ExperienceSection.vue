@@ -87,7 +87,7 @@ const filteredItems = computed(() => {
             {{ item.role }}
           </h3>
           <p class="text-sm font-semibold text-purple-600 dark:text-purple-400 mb-3 flex items-center gap-1.5">
-            <span class="material-symbols-rounded text-base">apartment</span>
+            <span class="material-symbols-rounded text-base">{{ item.type === 'project' ? 'laptop' : 'apartment' }}</span>
             {{ item.company }}
           </p>
 

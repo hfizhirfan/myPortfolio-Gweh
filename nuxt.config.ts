@@ -7,7 +7,7 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'en',
       },
-      title: 'Hafizh Muhammad Irfansyah | IT Programmer, UI/UX Designer & Web Developer',
+      title: 'HMI Portfolio',
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -25,7 +25,7 @@ export default defineNuxtConfig({
         { name: 'robots', content: 'index, follow' },
         // Open Graph / Facebook
         { property: 'og:type', content: 'website' },
-        { property: 'og:title', content: 'Hafizh Muhammad Irfansyah | IT Programmer, UI/UX Designer & Web Developer' },
+        { property: 'og:title', content: 'HMI Portfolio' },
         {
           property: 'og:description',
           content:
@@ -35,7 +35,7 @@ export default defineNuxtConfig({
         { property: 'og:locale', content: 'en_US' },
         // Twitter Card
         { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:title', content: 'Hafizh Muhammad Irfansyah | Portfolio' },
+        { name: 'twitter:title', content: 'HMI Portfolio' },
         {
           name: 'twitter:description',
           content:

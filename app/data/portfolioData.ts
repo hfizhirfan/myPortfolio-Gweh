@@ -67,7 +67,7 @@ export const heroData = {
   stats: [
     { value: '3+', label: 'Years of Design & Web Experience' },
     { value: '10+', label: 'Featured Projects & Systems' },
-    { value: '6+', label: 'Professional Certifications' },
+    { value: '8+', label: 'Professional Certifications' },
   ],
 }
 
@@ -156,6 +156,18 @@ export const experiencesAndProjects: ExperienceItem[] = [
 
   // --- Featured Projects ---
   {
+    id: 'proj-hikcentral',
+    role: 'UI/UX Designer & Front-end Developer',
+    company: 'Dashboard Monitoring using HikCentral Professional',
+    employmentType: 'Enterprise Monitoring Dashboard',
+    period: 'Jun 2026 - Aug 2026',
+    description:
+      'Designed the complete UI/UX interface and prototype in Figma before developing an interactive enterprise monitoring dashboard using Vue.js and HikCentral Professional APIs.',
+    techStack: ['Figma', 'UI/UX', 'Vue.js', 'API', 'HikCentral'],
+    type: 'project',
+    featured: true,
+  },
+  {
     id: 'proj-1',
     role: 'Full-stack Developer',
     company: 'Browsbyveron',
@@ -163,7 +175,7 @@ export const experiencesAndProjects: ExperienceItem[] = [
     period: 'Jun 2026 - Present',
     description:
       'Continuously develop and customize additional features for a beauty studio website from the MVP phase, utilizing a Vue.js frontend and Django backend to accommodate dynamic client requirements.',
-    techStack: ['Vue.js', 'Django', 'REST API', 'Tailwind CSS', 'PostgreSQL'],
+    techStack: ['Vue.js', 'Django', 'Tailwind CSS'],
     type: 'project',
     featured: true,
   },
@@ -175,7 +187,7 @@ export const experiencesAndProjects: ExperienceItem[] = [
     period: 'Jun 2026 - Jul 2026',
     description:
       "Built a company profile landing page website using WordPress to strengthen the client's digital business visibility.",
-    techStack: ['WordPress', 'Elementor', 'PHP', 'HTML5', 'CSS3'],
+    techStack: ['WordPress', 'PHP'],
     type: 'project',
     featured: true,
   },
@@ -234,8 +246,8 @@ export const experiencesAndProjects: ExperienceItem[] = [
     employmentType: 'E-Commerce Storefront',
     period: 'Mar 2025',
     description:
-      'Developed an e-commerce website using Laravel, MySQL, and Docker to support product sales, as an extension of a university assignment project.',
-    techStack: ['Laravel', 'MySQL', 'Docker', 'Vue.js', 'Tailwind CSS'],
+      'Developed an e-commerce website using Laravel and Bootstrap to support product sales, as an extension of a university assignment project.',
+    techStack: ['Laravel', 'Bootstrap'],
     type: 'project',
     featured: true,
   },
@@ -318,6 +330,17 @@ export const achievementsData: AchievementItem[] = [
     credentialUrl: 'https://learn.mongodb.com/c/KbEanYgFS8e5dsAXIo9-DA',
   },
   {
+    id: 'cert-7',
+    title: 'Code Generation and Optimization Using IBM Granite',
+    issuer: 'IBM',
+    issuerLogo: '/ibm_logo.svg',
+    issuerLogo: '/ibm_logo.jpg',
+    date: '2025',
+    type: 'certification',
+    badgeText: 'AI & Code Generation',
+    credentialUrl: 'https://www.credly.com/badges/0f041893-002d-472f-9b98-bf68ee74c8fa/public_url',
+  },
+  {
     id: 'cert-4',
     title: 'Building with the Claude API',
     issuer: 'Anthropic',
@@ -339,13 +362,24 @@ export const achievementsData: AchievementItem[] = [
   },
   {
     id: 'cert-6',
-    title: 'Agile Project Management',
+    title: 'Google Project Management Professional Certificate',
     issuer: 'Google',
     issuerLogo: '/google_logo.jpg',
     date: '2026',
     type: 'certification',
     badgeText: 'Project Management',
-    credentialUrl: 'https://www.coursera.org/account/accomplishments/records/OC8I3407CII6',
+    credentialUrl: 'https://www.coursera.org/account/accomplishments/specialization/RU206CJ5HD0N',
+  },
+  {
+    id: 'cert-8',
+    title: 'LLM-Based Tools and Gemini API Integration for Data Scientists',
+    issuer: 'Hacktiv8 Indonesia',
+    issuerLogo: '/hacktiv8_logo.png',
+    issuerLogo: '/hacktiv8_logo.jpg',
+    date: '2026',
+    type: 'certification',
+    badgeText: 'Generative AI & LLM',
+    credentialUrl: 'https://students.hacktiv8.com/certificates/65176bef-a0dd-4195-a91b-37468d2621e0',
   },
 ]
 

@@ -1,4 +1,4 @@
-﻿export default defineNuxtPlugin((nuxtApp) => {
+export default defineNuxtPlugin((nuxtApp) => {
   if (typeof window === 'undefined') return
 
   if ('scrollRestoration' in history) {
@@ -94,3 +94,4 @@
     setTimeout(observeAllReveals, 50)
   })
 })
+
