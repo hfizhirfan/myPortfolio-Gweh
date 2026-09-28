@@ -126,7 +126,7 @@ export const experiencesAndProjects: ExperienceItem[] = [
     company: 'PT. Media Bersama Sukses',
     companyLogo: '/mbs_logo.png',
     employmentType: 'Contract',
-    period: 'Nov 2025 - Present',
+    period: 'Nov 2025 - Oct 2026',
     description:
       'Developing and maintaining interactive web applications, integrating modern front-end components, and managing enterprise digital content.',
     techStack: ['Vue.js', 'React.js', 'WordPress', 'HTML5', 'CSS3', 'JavaScript'],

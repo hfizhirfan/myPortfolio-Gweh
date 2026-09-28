@@ -175,7 +175,6 @@ onBeforeUnmount(() => {
         class="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-purple-200 dark:border-purple-800/80 text-purple-600 dark:text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-950/40 text-xs font-bold shadow-sm active:scale-95 transition-all cursor-pointer"
         @click="isExpanded = !isExpanded"
       >
-        <span class="material-symbols-rounded text-lg transition-transform duration-300" :class="{ 'rotate-180': isExpanded }">
         <span class="material-symbols-rounded text-lg transition-transform duration-300">
           {{ isExpanded ? 'expand_less' : 'expand_more' }}
         </span>
