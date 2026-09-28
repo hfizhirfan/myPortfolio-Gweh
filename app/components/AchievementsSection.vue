@@ -4,6 +4,7 @@ import { achievementsData } from '../data/portfolioData'
 
 const awards = achievementsData.filter((item) => item.type === 'award')
 const certifications = achievementsData.filter((item) => item.type === 'certification')
+const isExpanded = ref(false)
 
 const previewModal = ref({
   isOpen: false,
@@ -108,13 +109,16 @@ onBeforeUnmount(() => {
       </div>
     </div>
 
-    <!-- 2. Certifications Grid (Bottom: 2 Rows x 3 Columns = 6 Cards) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+    <!-- 2. Certifications Grid (Mobile shows 3 initially, desktop shows full grid) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
       <div
         v-for="(cert, index) in certifications"
         :key="cert.id"
-        class="group rounded-2xl p-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs hover:shadow-lg hover:border-purple-300 dark:hover:border-purple-700/60 transition-all duration-300 flex flex-col justify-between hover:-translate-y-1.5 reveal-on-scroll"
-        :class="`reveal-delay-${(index % 6) + 1}`"
+        class="group rounded-2xl p-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs hover:shadow-lg hover:border-purple-300 dark:hover:border-purple-700/60 transition-all duration-300 flex-col justify-between hover:-translate-y-1.5 reveal-on-scroll"
+        :class="[
+          `reveal-delay-${(index % 6) + 1}`,
+          index >= 3 && !isExpanded ? 'hidden md:flex' : 'flex',
+        ]"
       >
         <div>
           <div class="flex items-center justify-between gap-2 mb-3">
@@ -162,6 +166,21 @@ onBeforeUnmount(() => {
           </a>
         </div>
       </div>
+    </div>
+
+    <!-- Mobile Show More / Show Less Button (Visible on screens < md) -->
+    <div v-if="certifications.length > 3" class="md:hidden mt-6 flex justify-center">
+      <button
+        type="button"
+        class="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-purple-200 dark:border-purple-800/80 text-purple-600 dark:text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-950/40 text-xs font-bold shadow-sm active:scale-95 transition-all cursor-pointer"
+        @click="isExpanded = !isExpanded"
+      >
+        <span class="material-symbols-rounded text-lg transition-transform duration-300" :class="{ 'rotate-180': isExpanded }">
+        <span class="material-symbols-rounded text-lg transition-transform duration-300">
+          {{ isExpanded ? 'expand_less' : 'expand_more' }}
+        </span>
+        <span>{{ isExpanded ? 'Show Less' : `Show More (${certifications.length - 3} more)` }}</span>
+      </button>
     </div>
 
     <!-- Certificate Lightbox Modal -->

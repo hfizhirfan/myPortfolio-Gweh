@@ -100,8 +100,8 @@ const scrollToSection = (e: MouseEvent, id: string) => {
         />
       </a>
 
-      <!-- Desktop Navigation -->
-      <nav class="hidden md:flex items-center gap-1 lg:gap-2">
+      <!-- Desktop Navigation (lg screens and up) -->
+      <nav class="hidden lg:flex items-center gap-1 xl:gap-2">
         <a
           v-for="link in navLinks"
           :key="link.id"
@@ -169,11 +169,11 @@ const scrollToSection = (e: MouseEvent, id: string) => {
           </span>
         </button>
 
-        <!-- Mobile Menu Hamburger -->
+        <!-- Mobile/Tablet Menu Hamburger -->
         <button
           type="button"
           aria-label="Open Mobile Menu"
-          class="md:hidden w-9 h-9 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700"
+          class="lg:hidden w-9 h-9 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700"
           @click="isMobileMenuOpen = !isMobileMenuOpen"
         >
           <span class="material-symbols-rounded text-xl">
@@ -183,10 +183,10 @@ const scrollToSection = (e: MouseEvent, id: string) => {
       </div>
     </div>
 
-    <!-- Mobile Drawer -->
+    <!-- Mobile/Tablet Drawer -->
     <div
       v-if="isMobileMenuOpen"
-      class="md:hidden max-w-6xl mx-auto mt-2 p-4 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 flex flex-col gap-2"
+      class="lg:hidden max-w-6xl mx-auto mt-2 p-4 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 flex flex-col gap-2"
     >
       <a
         v-for="link in navLinks"

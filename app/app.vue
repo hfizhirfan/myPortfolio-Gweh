@@ -68,7 +68,7 @@ onMounted(() => {
     </main>
 
     <!-- Main Single Page Portfolio -->
-    <main v-else class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 space-y-16 sm:space-y-20">
+    <main v-else class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 lg:pt-28 pb-16 space-y-16 sm:space-y-20">
       <!-- 1. Hero Section ("Hello, there") -->
       <HeroSection />
 
