@@ -51,7 +51,7 @@ onBeforeUnmount(() => {
         Achievement & Certifications
       </h2>
       <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400">
-        National data infographic competition honors and industry technical credentials (Enterprise ERP, Database, AI, and Project Management).
+        National data infographic competition honors and industry technical credentials (Enterprise ERP, Database, AI, Cybersecurity, and Project Management).
       </p>
     </div>
 

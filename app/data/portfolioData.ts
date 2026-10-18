@@ -68,7 +68,7 @@ export const heroData = {
   stats: [
     { value: '3+', label: 'Years of Design & Web Experience' },
     { value: '10+', label: 'Featured Projects & Systems' },
-    { value: '8+', label: 'Professional Certifications' },
+    { value: '9+', label: 'Professional Certifications' },
   ],
 }
 
@@ -365,7 +365,7 @@ export const achievementsData: AchievementItem[] = [
   },
   {
     id: 'cert-6',
-    title: 'Google Project Management Professional Certificate',
+    title: 'Google Project Management',
     issuer: 'Google',
     issuerLogo: '/google_logo.jpg',
     date: '2026',
@@ -382,6 +382,16 @@ export const achievementsData: AchievementItem[] = [
     type: 'certification',
     badgeText: 'Generative AI & LLM',
     credentialUrl: 'https://students.hacktiv8.com/certificates/65176bef-a0dd-4195-a91b-37468d2621e0',
+  },
+  {
+    id: 'cert-9',
+    title: 'Google Cybersecurity',
+    issuer: 'Google',
+    issuerLogo: '/google_logo.jpg',
+    date: '2026',
+    type: 'certification',
+    badgeText: 'Cybersecurity',
+    credentialUrl: 'https://www.coursera.org/account/accomplishments/professional-cert/OZQ3NOJ7N91T',
   },
 ]
 
