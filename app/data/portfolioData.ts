@@ -176,7 +176,7 @@ export const experiencesAndProjects: ExperienceItem[] = [
     role: 'Full-stack Developer',
     company: 'Browsbyveron',
     employmentType: 'Beauty Studio Web',
-    period: 'Jun 2026 - Present',
+    period: 'Jun 2026 - Oct 2026',
     description:
       'Continuously develop and customize additional features for a beauty studio website from the MVP phase, utilizing a Vue.js frontend and Django backend to accommodate dynamic client requirements.',
     techStack: ['Vue.js', 'Django', 'Tailwind CSS'],
