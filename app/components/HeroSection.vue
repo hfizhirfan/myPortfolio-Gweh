@@ -15,18 +15,10 @@ import { heroData } from '../data/portfolioData'
     <div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
       <!-- Left Column: Copywriting & Actions -->
       <div class="lg:col-span-7 flex flex-col items-start space-y-6 text-left reveal-on-scroll reveal-fade-left">
-        <!-- Friendly Pill Badge -->
-        <div
-          class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-100/80 dark:bg-purple-950/60 border border-purple-200 dark:border-purple-800 text-purple-700 dark:text-purple-300 text-xs font-semibold tracking-wide shadow-sm"
-        >
-          <span class="inline-block w-2 h-2 rounded-full bg-purple-600 animate-pulse"></span>
-          <span>{{ heroData.greeting }}</span>
-        </div>
-
         <!-- Headline & Name -->
         <div class="space-y-2">
           <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15]">
-            I'm <span class="bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-500 bg-clip-text text-transparent">{{ heroData.name }}</span>
+            I'm <span class="text-purple-600">{{ heroData.name }}</span>
           </h1>
           <p class="text-base sm:text-lg font-semibold text-purple-600 dark:text-purple-400">
             {{ heroData.role }}
@@ -42,7 +34,7 @@ import { heroData } from '../data/portfolioData'
         <div class="flex flex-wrap items-center gap-3.5 pt-2">
           <a
             href="#contact"
-            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold text-sm shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 hover:-translate-y-0.5 transition-all"
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-semibold text-sm shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 hover:-translate-y-0.5 transition-all"
           >
             <span>Let's Connect</span>
             <span class="material-symbols-rounded text-lg">arrow_forward</span>
@@ -101,7 +93,7 @@ import { heroData } from '../data/portfolioData'
             :key="stat.label"
             class="p-3 rounded-xl bg-white/70 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-800/80 backdrop-blur-sm shadow-xs"
           >
-            <span class="block text-xl sm:text-2xl font-black bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">{{ stat.value }}</span>
+            <span class="block text-xl sm:text-2xl font-black text-purple-600">{{ stat.value }}</span>
             <span class="text-[11px] font-medium text-slate-500 dark:text-slate-400 leading-tight block mt-0.5">{{ stat.label }}</span>
           </div>
         </div>
@@ -111,10 +103,10 @@ import { heroData } from '../data/portfolioData'
       <div class="lg:col-span-5 flex justify-center items-center relative reveal-on-scroll reveal-fade-right reveal-delay-1">
         <div class="relative w-full max-w-[340px] sm:max-w-[380px]">
           <!-- Geometric Aura Frame -->
-          <div class="absolute -inset-2 bg-gradient-to-tr from-purple-600/30 via-indigo-500/20 to-cyan-500/30 rounded-3xl blur-xl"></div>
+          <div class="absolute -inset-2 bg-purple-600/20 rounded-3xl blur-xl"></div>
 
           <!-- Photo Container -->
-          <div class="relative rounded-3xl overflow-hidden bg-gradient-to-b from-purple-100 via-slate-50 to-white dark:from-slate-800 dark:via-slate-900 dark:to-slate-950 border border-slate-200/80 dark:border-slate-700 shadow-2xl">
+          <div class="relative rounded-3xl overflow-hidden bg-slate-50 dark:bg-slate-900 border border-slate-200/80 dark:border-slate-700 shadow-2xl">
             <img
               :src="heroData.portraitImage"
               :alt="heroData.portraitAlt"

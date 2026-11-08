@@ -43,10 +43,6 @@ onBeforeUnmount(() => {
   <section id="achievements" class="relative py-12 border-t border-slate-200/60 dark:border-slate-800/80">
     <!-- Section Header -->
     <div class="text-center max-w-2xl mx-auto mb-12 space-y-3 reveal-on-scroll">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-800 text-amber-700 dark:text-amber-300 text-xs font-bold uppercase tracking-wider">
-        <span class="material-symbols-rounded text-sm">emoji_events</span>
-        <span>Recognition & Credentials</span>
-      </div>
       <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
         Achievement & Certifications
       </h2>
@@ -60,11 +56,11 @@ onBeforeUnmount(() => {
       <div
         v-for="award in awards"
         :key="award.id"
-        class="relative rounded-3xl p-6 sm:p-8 bg-gradient-to-r from-amber-500/10 via-purple-500/5 to-white dark:to-slate-900 border border-amber-300/80 dark:border-amber-700/60 shadow-md flex flex-col md:flex-row md:items-center justify-between gap-6 hover:shadow-xl hover:border-amber-400 transition-all duration-300"
+        class="relative rounded-3xl p-6 sm:p-8 bg-white dark:bg-slate-900 border border-amber-300/80 dark:border-amber-700/60 shadow-md flex flex-col md:flex-row md:items-center justify-between gap-6 hover:shadow-xl hover:border-amber-400 transition-all duration-300"
       >
         <!-- Left: Trophy Icon + Title + Issuer + Meta Info -->
         <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5 flex-1">
-          <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-white shadow-lg shadow-amber-500/20 shrink-0">
+          <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-amber-500 flex items-center justify-center text-white shadow-lg shadow-amber-500/20 shrink-0">
             <span class="material-symbols-rounded text-3xl">trophy</span>
           </div>
 

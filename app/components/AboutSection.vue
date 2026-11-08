@@ -8,8 +8,8 @@ import { aboutData } from '../data/portfolioData'
       <!-- Left Column: Visual Photo / Showcase -->
       <div class="lg:col-span-5 flex justify-center reveal-on-scroll reveal-fade-left">
         <div class="relative w-full max-w-sm group">
-          <!-- Gradient border glow -->
-          <div class="absolute -inset-1.5 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-3xl blur-md opacity-40 group-hover:opacity-70 transition duration-500"></div>
+          <!-- Solid border glow -->
+          <div class="absolute -inset-1.5 bg-purple-600 rounded-3xl blur-md opacity-25 group-hover:opacity-50 transition duration-500"></div>
 
           <div class="relative rounded-3xl overflow-hidden bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl">
             <img

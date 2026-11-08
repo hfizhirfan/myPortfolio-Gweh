@@ -106,11 +106,11 @@ html {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(147, 51, 234, 0.3);
+  background: rgba(65, 95, 255, 0.3);
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(147, 51, 234, 0.6);
+  background: rgba(65, 95, 255, 0.6);
 }
 
 /* Smooth Scroll Reveal Animations */

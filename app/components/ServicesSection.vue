@@ -6,10 +6,6 @@ import { servicesData } from '../data/portfolioData'
   <section id="services" class="relative py-12 border-t border-slate-200/60 dark:border-slate-800/80">
     <!-- Section Header -->
     <div class="text-center max-w-2xl mx-auto mb-12 space-y-3 reveal-on-scroll">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-950/60 border border-purple-200 dark:border-purple-800 text-purple-700 dark:text-purple-300 text-xs font-bold uppercase tracking-wider">
-        <span class="material-symbols-rounded text-sm">auto_awesome</span>
-        <span>My Services & Specialisation</span>
-      </div>
       <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
         Bridging Design Craftsmanship & Software Engineering
       </h2>
@@ -26,14 +22,14 @@ import { servicesData } from '../data/portfolioData'
         class="group relative rounded-3xl p-6 sm:p-7 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800/90 shadow-sm hover:shadow-xl hover:border-purple-300 dark:hover:border-purple-700/60 transition-all duration-300 flex flex-col justify-between hover:-translate-y-1.5 reveal-on-scroll"
         :class="`reveal-delay-${index + 1}`"
       >
-        <!-- Top Gradient Glow on Hover -->
-        <div class="absolute -top-px inset-x-8 h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <!-- Top Border Glow on Hover -->
+        <div class="absolute -top-px inset-x-8 h-px bg-purple-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
 
         <div>
           <!-- Icon & Counter Header -->
           <div class="flex items-center justify-between mb-6">
             <div
-              class="w-12 h-12 rounded-2xl bg-gradient-to-br flex items-center justify-center text-white shadow-md"
+              class="w-12 h-12 rounded-2xl flex items-center justify-center text-white shadow-md"
               :class="service.accentColor"
             >
               <span class="material-symbols-rounded text-2xl">{{ service.icon }}</span>

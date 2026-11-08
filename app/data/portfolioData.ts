@@ -8,6 +8,11 @@ export interface ServiceItem {
   tags: string[]
 }
 
+export interface ProjectScreenshot {
+  title: string
+  image: string
+}
+
 export interface ExperienceItem {
   id: string
   role: string
@@ -19,6 +24,7 @@ export interface ExperienceItem {
   techStack: string[]
   type: 'experience' | 'project'
   featured?: boolean
+  screenshots?: ProjectScreenshot[]
 }
 
 export interface AchievementItem {
@@ -93,7 +99,7 @@ export const servicesData: ServiceItem[] = [
     description:
       'Building responsive web interfaces and full-stack systems. Experienced in taking projects from initial MVP to production scale using Vue.js, React.js, Nuxt.js, Laravel, Django, MySQL, and PostgreSQL.',
     icon: 'terminal',
-    accentColor: 'from-violet-500 to-indigo-600',
+    accentColor: 'bg-purple-600',
     tags: ['Vue.js', 'React.js', 'Nuxt.js', 'Laravel', 'Django', 'MySQL', 'PostgreSQL'],
   },
   {
@@ -103,7 +109,7 @@ export const servicesData: ServiceItem[] = [
     description:
       'Designing user interfaces for mobile and desktop platforms, identifying core user problems, crafting wireframes, building high-fidelity prototypes, and conducting usability testing using Figma and Human-Centered Design principles.',
     icon: 'design_services',
-    accentColor: 'from-cyan-500 to-blue-600',
+    accentColor: 'bg-blue-600',
     tags: ['Figma', 'Human-Centered Design', 'Wireframing', 'Prototyping', 'Usability Testing'],
   },
   {
@@ -113,7 +119,7 @@ export const servicesData: ServiceItem[] = [
     description:
       'Producing high-impact promotional materials (brochures, banners), corporate profile videos, and interactive marketing media using Adobe Photoshop, Premiere Pro, After Effects, and CorelDraw.',
     icon: 'movie_edit',
-    accentColor: 'from-amber-500 to-rose-600',
+    accentColor: 'bg-rose-600',
     tags: ['Adobe Photoshop', 'Premiere Pro', 'After Effects', 'CorelDraw', 'Visual Branding'],
   },
 ]
@@ -242,6 +248,68 @@ export const experiencesAndProjects: ExperienceItem[] = [
     techStack: ['Laravel', 'MySQL', 'Blade', 'Bootstrap', 'PHP'],
     type: 'project',
     featured: true,
+    screenshots: [
+      {
+        title: 'Halaman Login',
+        image: '/Project SIstem Absensi/Login.png',
+      },
+      {
+        title: 'Halaman Pre-Absen Karyawan',
+        image: '/Project SIstem Absensi/Pre absen.png',
+      },
+      {
+        title: 'Halaman Absensi Karyawan',
+        image: '/Project SIstem Absensi/Absen.png',
+      },
+      {
+        title: 'Form Pengajuan Izin',
+        image: '/Project SIstem Absensi/Pengajuan Izin.png',
+      },
+      {
+        title: 'Form Pengajuan Cuti',
+        image: '/Project SIstem Absensi/Pengajuan Cuti.png',
+      },
+      {
+        title: 'Form Pengajuan Lembur',
+        image: '/Project SIstem Absensi/Pengajuan Lembur.png',
+      },
+      {
+        title: 'Halaman Pre-Absen HRD',
+        image: '/Project SIstem Absensi/Pre absen HRD.png',
+      },
+      {
+        title: 'Dashboard HRD - Data Karyawan',
+        image: '/Project SIstem Absensi/Dashboard HRD - Karyawan.png',
+      },
+      {
+        title: 'Dashboard HRD - Izin Karyawan',
+        image: '/Project SIstem Absensi/Dashboard HRD - Izin Karyawan.png',
+      },
+      {
+        title: 'Dashboard HRD - Detail Izin',
+        image: '/Project SIstem Absensi/Dashboard HRD - Detail Izin.png',
+      },
+      {
+        title: 'Dashboard HRD - Detail Izin (Status & Catatan)',
+        image: '/Project SIstem Absensi/Dashboard HRD - Detail Izin 2.png',
+      },
+      {
+        title: 'Dashboard HRD - Cuti Karyawan',
+        image: '/Project SIstem Absensi/Dashboard HRD - Cuti Karyawan.png',
+      },
+      {
+        title: 'Dashboard HRD - Detail Cuti Karyawan',
+        image: '/Project SIstem Absensi/Dashboard HRD - Detail Cuti Karyawan.png',
+      },
+      {
+        title: 'Dashboard HRD - Data Lembur Karyawan',
+        image: '/Project SIstem Absensi/Dashboard HRD - Lebur Karyawan.png',
+      },
+      {
+        title: 'Dashboard HRD - Rekap Laporan Absensi',
+        image: '/Project SIstem Absensi/Dashboard HRD - Laporan Absen.png',
+      },
+    ],
   },
   {
     id: 'proj-7',

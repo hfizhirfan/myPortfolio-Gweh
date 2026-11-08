@@ -61,11 +61,6 @@ const handleSubmit = async () => {
       <!-- Left Column: Contact Details -->
       <div class="lg:col-span-5 flex flex-col justify-between space-y-6 text-left reveal-on-scroll reveal-fade-left">
         <div>
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-950/60 border border-purple-200 dark:border-purple-800 text-purple-700 dark:text-purple-300 text-xs font-bold uppercase tracking-wider mb-4">
-            <span class="material-symbols-rounded text-sm">mail</span>
-            <span>{{ contactData.eyebrow }}</span>
-          </div>
-
           <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
             {{ contactData.title }}
           </h2>
@@ -225,7 +220,7 @@ const handleSubmit = async () => {
               <button
                 type="submit"
                 :disabled="isLoading"
-                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold text-sm shadow-md shadow-purple-500/25 hover:shadow-purple-500/40 hover:-translate-y-0.5 transition-all disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
+                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-semibold text-sm shadow-md shadow-purple-500/25 hover:shadow-purple-500/40 hover:-translate-y-0.5 transition-all disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
               >
                 <span v-if="isLoading" class="inline-block w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
                 <span class="material-symbols-rounded text-lg" v-else>send</span>
