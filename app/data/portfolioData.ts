@@ -176,11 +176,33 @@ export const experiencesAndProjects: ExperienceItem[] = [
     techStack: ['Figma', 'UI/UX', 'Vue.js', 'API', 'HikCentral'],
     type: 'project',
     featured: true,
+    screenshots: [
+      {
+        title: 'Halaman Dashboard Utama',
+        image: '/Project Dashboard Monitoring/Halaman Dashboard.png',
+      },
+      {
+        title: 'Halaman Live Activity',
+        image: '/Project Dashboard Monitoring/Halaman Live Activity.png',
+      },
+      {
+        title: 'Halaman Shift Monitoring',
+        image: '/Project Dashboard Monitoring/Halaman Shift Monitoring.png',
+      },
+      {
+        title: 'Halaman Non-Shift Monitoring',
+        image: '/Project Dashboard Monitoring/Halaman Non Shift Monitoring.png',
+      },
+      {
+        title: 'Halaman Riwayat Absensi',
+        image: '/Project Dashboard Monitoring/Halaman Riwayat Absensi.png',
+      },
+    ],
   },
   {
     id: 'proj-1',
     role: 'Full-stack Developer',
-    company: 'Browsbyveron',
+    company: 'Glea Atelier & Academy',
     employmentType: 'Beauty Studio Web',
     period: 'Jun 2026 - Oct 2026',
     description:
@@ -188,6 +210,32 @@ export const experiencesAndProjects: ExperienceItem[] = [
     techStack: ['Vue.js', 'Django', 'Tailwind CSS'],
     type: 'project',
     featured: true,
+    screenshots: [
+      {
+        title: 'Glea Atelier & Academy - Halaman Utama',
+        image: '/Glea/Screenshot (1900).png',
+      },
+      {
+        title: 'Glea Atelier & Academy - Halaman Layanan & Treatment',
+        image: '/Glea/Screenshot (1901).png',
+      },
+      {
+        title: 'Glea Atelier & Academy - Halaman Academy & Kursus',
+        image: '/Glea/Screenshot (1902).png',
+      },
+      {
+        title: 'Glea Atelier & Academy - Halaman Galeri & Portofolio',
+        image: '/Glea/Screenshot (1903).png',
+      },
+      {
+        title: 'Glea Atelier & Academy - Halaman Testimoni & Review',
+        image: '/Glea/Screenshot (1904).png',
+      },
+      {
+        title: 'Glea Atelier & Academy - Halaman Reservasi & Kontak',
+        image: '/Glea/Screenshot (1905).png',
+      },
+    ],
   },
   {
     id: 'proj-2',
