@@ -240,14 +240,28 @@ export const experiencesAndProjects: ExperienceItem[] = [
   {
     id: 'proj-2',
     role: 'WordPress Developer',
-    company: 'PT. Pancar Cahaya Terang Landing Page',
+    company: 'PT. Pancar Cahaya Terang',
     employmentType: 'Company Profile',
     period: 'Jun 2026 - Jul 2026',
     description:
-      "Built a company profile landing page website using WordPress to strengthen the client's digital business visibility.",
+      "Built a company profile website using WordPress to strengthen the client's digital business visibility.",
     techStack: ['WordPress', 'PHP'],
     type: 'project',
     featured: true,
+    screenshots: [
+      {
+        title: 'PT. Pancar Cahaya Terang - Preview 1',
+        image: '/PT Pancar/Frame 48095804.png',
+      },
+      {
+        title: 'PT. Pancar Cahaya Terang - Preview 2',
+        image: '/PT Pancar/Frame 48095805.png',
+      },
+      {
+        title: 'PT. Pancar Cahaya Terang - Preview 3',
+        image: '/PT Pancar/Frame 48095806.png',
+      },
+    ],
   },
   {
     id: 'proj-3',
